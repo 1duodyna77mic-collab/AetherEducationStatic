@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Tools</title>
+    <title>Wilbert Hub — Tools</title>
     <link rel="icon" type="image/png" href="aether-favicon.png">
 
     <style>
@@ -477,8 +477,19 @@
         }
 
     </style>
+<style id="wilbert-hub-theme">
+:root{--wilbert-purple:#7c3aed;--wilbert-purple-2:#a855f7;--wilbert-bg:#090511;--wilbert-panel:rgba(20,8,38,.72);}
+html,body{background-color:var(--wilbert-bg)!important;background-image:radial-gradient(circle at 20% 10%,rgba(124,58,237,.28),transparent 35%),radial-gradient(circle at 85% 80%,rgba(168,85,247,.22),transparent 38%)!important;color:#f7f2ff!important;}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(135deg,rgba(124,58,237,.10),transparent 45%,rgba(168,85,247,.08));}
+h1,h2,h3,.title,.Aetherlogo,.research-logo,.activities-header{color:#f7f2ff!important;text-shadow:0 0 28px rgba(168,85,247,.65)!important;}
+.appleseed,.panel,.card,.game-card,.search-panel,.browser-panel,.activities-header{background:var(--wilbert-panel)!important;border-color:rgba(168,85,247,.55)!important;box-shadow:0 12px 40px rgba(0,0,0,.28),0 0 30px rgba(124,58,237,.12)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;}
+button,.btn,.Medeviscool,.VenomOnTop,.deveriono{border-color:rgba(168,85,247,.75)!important;}
+button:hover,.btn:hover,.Medeviscool:hover,.VenomOnTop:hover,.deveriono:hover{background:rgba(124,58,237,.28)!important;border-color:#c084fc!important;}
+a{color:#d8b4fe;}
+.wilbert-brand{position:relative;z-index:20;font:800 14px/1 system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#e9d5ff;opacity:.9;}
+</style>
 </head>
-<body>
+<body><div class="wilbert-brand" style="position:fixed;top:18px;left:22px;">WILBERT HUB</div>
     <script src="page-loader.js"></script>
     <nav class="appleseed">
         <button class="nav-action" onclick="window.location.href='enrichment.html'" title="Games" aria-label="Games">
@@ -545,9 +556,9 @@
             } catch {}
 
             const currentHref = [window.location.href, document.referrer, parentHref].join(" ");
-            const isStatic = currentHref.includes("/gh/AetherGamesOfficial/") || currentHref.includes(".svg");
+            const isStatic = currentHref.includes("/gh/WilbertGamesOfficial/") || currentHref.includes(".svg");
             return isStatic
-                ? `https://cdn.jsdelivr.net/gh/AetherGamesOfficial/AetherEducationStatic@main/${page.replace(/\.html$/, ".svg")}`
+                ? `https://cdn.jsdelivr.net/gh/WilbertGamesOfficial/WilbertEducationStatic@main/${page.replace(/\.html$/, ".svg")}`
                 : page;
         }
 
@@ -570,7 +581,7 @@
     </script>
 <script>
 (() => {
-    function createAetherStore() {
+    function createWilbertStore() {
     const memory = new Map();
     try {
         const key = "__aether_storage_test__";
@@ -585,7 +596,7 @@
         };
     }
 }
-const store = createAetherStore();
+const store = createWilbertStore();
     const bgMap = {
         default: '#121212 url("aether background.png") center / cover fixed no-repeat',
         night: 'linear-gradient(135deg, #050505, #122033 58%, #12051f) fixed',
