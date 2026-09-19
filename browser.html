@@ -3,11 +3,11 @@
 (function(){
   const target=new URLSearchParams(location.search).get("url");
   if(!target) return;
-  const clean=decodeURIComponent(target);
+  const clean=target;
   let tries=0;
   const timer=setInterval(function(){
     tries++;
-    const input=document.querySelector(".addr-input");
+    const input=document.querySelector("#searchInput")||document.querySelector(".addr-input");
     if(input){
       clearInterval(timer);
       input.value=clean;
@@ -15,7 +15,8 @@
       input.dispatchEvent(new Event("change",{bubbles:true}));
       input.focus();
       input.dispatchEvent(new KeyboardEvent("keydown",{key:"Enter",code:"Enter",keyCode:13,which:13,bubbles:true}));
-      input.dispatchEvent(new KeyboardEvent("keyup",{key:"Enter",code:"Enter",keyCode:13,which:13,bubbles:true}));
+      input.dispatchEvent(new KeyboardEvent("keypress",{key:"Enter",code:"Enter",keyCode:13,which:13,bubbles:true}));
+      if(typeof window.navigate==="function") window.navigate(clean);
     } else if(tries>200) clearInterval(timer);
   },100);
 })();
