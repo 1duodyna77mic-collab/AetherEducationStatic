@@ -547,38 +547,13 @@ a{color:#d8b4fe;}
     </div>
 
     <script>
-        const toolTargetKey = "aether-tool-target";
-
-        function getStaticPageUrl(page) {
-            let parentHref = "";
-            try {
-                parentHref = window.parent && window.parent !== window ? window.parent.location.href : "";
-            } catch {}
-
-            const currentHref = [window.location.href, document.referrer, parentHref].join(" ");
-            const isStatic = currentHref.includes("/gh/WilbertGamesOfficial/") || currentHref.includes(".svg");
-            return isStatic
-                ? `https://cdn.jsdelivr.net/gh/WilbertGamesOfficial/WilbertEducationStatic@main/${page.replace(/\.html$/, ".svg")}`
-                : page;
-        }
-
-        function getLoadingHandoffUrl(destination) {
-            return `${getStaticPageUrl("loading.html")}?next=${encodeURIComponent(destination)}`;
-        }
-
         document.querySelectorAll(".tool-tab").forEach((button) => {
             button.addEventListener("click", () => {
                 const url = button.dataset.url;
-                if (window.location.protocol === "data:" || window.location.origin === "null") {
-                    window.open(url, "_blank", "noopener");
-                    return;
-                }
-                try { sessionStorage.setItem(toolTargetKey, url); } catch {}
-                const destination = `${getStaticPageUrl("research.html")}?goto=${encodeURIComponent(url)}`;
-                window.location.href = getLoadingHandoffUrl(destination);
+                if (url) window.open(url, "_blank", "noopener,noreferrer");
             });
         });
-    </script>
+    </script>ipt>
 <script>
 (() => {
     function createWilbertStore() {
