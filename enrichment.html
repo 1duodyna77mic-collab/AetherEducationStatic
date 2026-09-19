@@ -1,26 +1,41 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wilbert Hub — Games</title>
 <style>
-html,body{margin:0;min-height:100%;font-family:Inter,system-ui,sans-serif;color:#f7f2ff;background:#090511}
-*{box-sizing:border-box}
-body{background:radial-gradient(circle at 20% 10%,rgba(124,58,237,.3),transparent 35%),radial-gradient(circle at 85% 80%,rgba(168,85,247,.22),transparent 38%),#090511;padding:100px 18px 30px;box-sizing:border-box}
-nav{position:fixed;top:15px;left:50%;transform:translateX(-50%);display:flex;gap:10px;padding:10px 14px;border:1px solid rgba(168,85,247,.55);border-radius:18px;background:rgba(20,8,38,.82);backdrop-filter:blur(18px);z-index:5}
-nav button{border:0;background:transparent;color:white;font-size:22px;padding:8px 12px;cursor:pointer}
-main{max-width:1000px;margin:auto}h1{text-align:center;font-size:clamp(42px,9vw,82px);margin:10px 0 30px;text-shadow:0 0 28px rgba(168,85,247,.65)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
-.card{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:250px;text-decoration:none;color:white;border:1px solid rgba(192,132,252,.38);border-radius:22px;background:rgba(20,8,38,.78);box-shadow:0 18px 45px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.08);transition:.25s;backdrop-filter:blur(16px)}
-.card:hover{transform:translateY(-6px) scale(1.01);border-color:#c084fc;box-shadow:0 24px 60px rgba(0,0,0,.38),0 0 34px rgba(124,58,237,.22)}
-.thumb{height:150px;position:relative;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,var(--c1),var(--c2))}
-.thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.12),transparent 45%,rgba(0,0,0,.22))}
-.thumb svg{width:82%;height:82%;position:relative;z-index:1;filter:drop-shadow(0 12px 20px rgba(0,0,0,.28))}
-.card-copy{padding:18px 20px 20px}.card b{font-size:20px;letter-spacing:-.02em}.card span{display:block;margin-top:7px;color:#cdb8e9;font-size:13px;line-height:1.45}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,system-ui,sans-serif;color:#f7f2ff;background:#090511}body{padding:96px 18px 30px;background:radial-gradient(circle at 20% 10%,rgba(124,58,237,.3),transparent 35%),radial-gradient(circle at 85% 80%,rgba(168,85,247,.22),transparent 38%),#090511}nav{position:fixed;top:15px;left:50%;transform:translateX(-50%);display:flex;gap:10px;padding:10px 14px;border:1px solid rgba(168,85,247,.55);border-radius:18px;background:rgba(20,8,38,.82);backdrop-filter:blur(18px);z-index:5}nav button{border:0;background:transparent;color:#fff;font-size:22px;padding:8px 12px;cursor:pointer}main{max-width:1100px;margin:auto}h1{text-align:center;font-size:clamp(42px,9vw,82px);margin:10px 0 10px;text-shadow:0 0 28px rgba(168,85,247,.65)}.sub{text-align:center;color:#cdb8e9;margin:0 0 28px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.card{min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;text-decoration:none;color:#fff;border:1px solid rgba(192,132,252,.38);border-radius:20px;background:rgba(20,8,38,.78);box-shadow:0 18px 45px rgba(0,0,0,.28);transition:.2s}.card:hover{transform:translateY(-5px);border-color:#c084fc;box-shadow:0 0 30px rgba(124,58,237,.25)}.art{height:120px;display:grid;place-items:center;font-size:38px;font-weight:800;background:linear-gradient(135deg,#7c3aed,#a855f7)}.name{padding:15px 16px;font-weight:700}.loading{grid-column:1/-1;text-align:center;color:#cdb8e9;padding:35px}.error{grid-column:1/-1;text-align:center;color:#e9d5ff;padding:20px;border:1px solid rgba(168,85,247,.4);border-radius:16px;background:rgba(20,8,38,.7)}
 </style></head><body>
-<nav><button onclick="location.href='studyhub.html'" title="Home">⌂</button><button onclick="location.href='enrichment.html'" title="Games">🎮</button><button onclick="location.href='resources.html'" title="Apps">▦</button><button onclick="location.href='settings.html'" title="Settings">⚙</button></nav>
-<main><h1>GAMES</h1><div class="grid">
-<a class="card" href="browser.html?url=https://play2048.co/"><b>2048</b></a>
-<a class="card" href="browser.html?url=https://agar.io/"><b>Agar.io</b></a>
-<a class="card" href="browser.html?url=https://slither.io/"><b>Slither.io</b></a>
-<a class="card" href="browser.html?url=https://shellshock.io/"><b>Shell Shockers</b></a>
-<a class="card" href="browser.html?url=https://diep.io/"><b>Diep.io</b></a>
-<a class="card" href="browser.html?url=https://krunker.io/"><b>Krunker</b></a>
-</div></main></body></html>
+<nav><button onclick="location.href='studyhub.html'">⌂</button><button onclick="location.href='enrichment.html'">🎮</button><button onclick="location.href='resources.html'">▦</button><button onclick="location.href='settings.html'">⚙</button></nav>
+<main><h1>GAMES</h1><p class="sub">Wilbert catalog • games from the Opium game sources</p><div id="grid" class="grid"><div class="loading">loading games…</div></div></main>
+<script>
+const SOURCES=[
+ {name:"seraph",index:"https://cdn.jsdelivr.net/gh/gmshelf/seraph/seraph.json",base:"https://cdn.jsdelivr.net/gh/gmshelf/seraph"},
+ {name:"ugs",index:"https://cdn.jsdelivr.net/gh/gmshelf/ugs/ugs.json",base:"https://cdn.jsdelivr.net/gh/gmshelf/ugs"},
+ {name:"ckv",index:"https://cdn.jsdelivr.net/gh/gmshelf/ckv/ckv.json",base:"https://cdn.jsdelivr.net/gh/gmshelf/ckv"}
+];
+const fallback=[
+ ["2048","https://play2048.co/"],["Agar.io","https://agar.io/"],["Slither.io","https://slither.io/"],["Shell Shockers","https://shellshock.io/"],["Diep.io","https://diep.io/"],["Krunker","https://krunker.io/"]
+];
+function addCard(name,url,i){
+ const a=document.createElement("a");a.className="card";a.href="browser.html?url="+encodeURIComponent(url);
+ const art=document.createElement("div");art.className="art";art.textContent=["◈","✦","◆","◉","★","◇"][i%6];
+ const n=document.createElement("div");n.className="name";n.textContent=name;
+ a.append(art,n);document.getElementById("grid").appendChild(a);
+}
+async function load(){
+ const grid=document.getElementById("grid");grid.innerHTML="";
+ const seen=new Set();let total=0;
+ for(const s of SOURCES){
+  try{
+   const r=await fetch(s.index,{cache:"no-store"});if(!r.ok)continue;
+   const data=await r.json();const list=Array.isArray(data)?data:(data.games||[]);
+   for(const g of list){
+    if(!g||!g.name||!g.url)continue;
+    const url=s.base+(s.name==="ckv"?g.url.replace(/\.html$/,"2.html"):g.url);
+    if(seen.has(url))continue;seen.add(url);addCard(g.name,url,total++);if(total>=60)break;
+   }
+  }catch(e){}
+  if(total>=60)break;
+ }
+ if(!total){fallback.forEach((g,i)=>addCard(g[0],g[1],i));}
+}
+load();
+</script></body></html>
