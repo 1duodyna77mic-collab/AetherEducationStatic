@@ -524,13 +524,13 @@ a{color:#d8b4fe;}
     <main class="tools-shell">
         <h1 class="tools-title">TOOLS</h1>
         <div class="tool-tabs">
-            <button class="tool-tab" data-url="https://flixmomo.com">movies</button>
-            <button class="tool-tab" data-url="https://youtube.com">youtube</button>
-            <button class="tool-tab" data-url="https://tiktok.com">tiktok</button>
-            <button class="tool-tab" data-url="https://discord.com">discord</button>
-            <button class="tool-tab" data-url="https://instagram.com">instagram</button>
-            <button class="tool-tab" data-url="https://facebook.com">facebook</button>
-        </div>
+<a class="tool-tab" href="https://www.youtube.com/" target="_blank" rel="noopener"><div class="app-art youtube">▶</div><strong>YouTube</strong><span>Videos & creators</span></a>
+<a class="tool-tab" href="https://discord.com/app" target="_blank" rel="noopener"><div class="app-art discord">☯</div><strong>Discord</strong><span>Chat & communities</span></a>
+<a class="tool-tab" href="https://www.tiktok.com/" target="_blank" rel="noopener"><div class="app-art tiktok">♪</div><strong>TikTok</strong><span>Short-form video</span></a>
+<a class="tool-tab" href="https://www.instagram.com/" target="_blank" rel="noopener"><div class="app-art instagram">◎</div><strong>Instagram</strong><span>Photos & reels</span></a>
+<a class="tool-tab" href="https://www.facebook.com/" target="_blank" rel="noopener"><div class="app-art facebook">f</div><strong>Facebook</strong><span>Social network</span></a>
+<a class="tool-tab" href="https://flixmomo.com/" target="_blank" rel="noopener"><div class="app-art movies">▶</div><strong>Movies</strong><span>Watch & discover</span></a>
+</div>
     </main>
 
     <div class="bubble-container">
@@ -546,14 +546,11 @@ a{color:#d8b4fe;}
         <div class="bubble" style="--start-x: 93%; --drift-x: -40px; --size: 13px; --speed: 8s;  --delay: 1.8s; --max-opacity: 0.6; --color: #00b4d8;"></div>
     </div>
 
-    <script>
-        document.querySelectorAll(".tool-tab").forEach((button) => {
-            button.addEventListener("click", () => {
-                const url = button.dataset.url;
-                if (url) window.open(url, "_blank", "noopener,noreferrer");
-            });
-        });
-    </script>ipt>
+    <style>
+.app-art{height:145px;display:grid;place-items:center;font:900 62px/1 system-ui;color:white;position:relative;overflow:hidden}.app-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.14),transparent 50%,rgba(0,0,0,.18))}
+.youtube{background:linear-gradient(135deg,#ff0033,#7f1d1d)}.discord{background:linear-gradient(135deg,#5865f2,#312e81)}.tiktok{background:linear-gradient(135deg,#111827,#ec4899)}.instagram{background:linear-gradient(135deg,#f97316,#7c3aed,#ec4899)}.facebook{background:linear-gradient(135deg,#1877f2,#1e3a8a)}.movies{background:linear-gradient(135deg,#7c3aed,#c026d3)}
+@media(max-width:720px){.tool-tabs{grid-template-columns:1fr 1fr}.tool-tab{min-height:200px}.app-art{height:120px}}
+</style>ipt>
 <script>
 (() => {
     function createWilbertStore() {
