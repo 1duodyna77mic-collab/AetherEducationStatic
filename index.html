@@ -1,13 +1,23 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=studyhub.html">
-  <title>Wilbert Hub</title>
-  <script>location.replace("studyhub.html");</script>
-</head>
-<body>
-  <p>Opening <a href="studyhub.html">Wilbert Hub</a>…</p>
-</body>
-</html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wilberto</title><meta name="theme-color" content="#090511"></head><body style="margin:0;background:#000"><script src="loader.js"></script>
+<script>
+(function(){
+  const target=new URLSearchParams(location.search).get("url");
+  if(!target) return;
+  const clean=target;
+  let tries=0;
+  const timer=setInterval(function(){
+    tries++;
+    const input=document.querySelector("#searchInput")||document.querySelector(".addr-input");
+    if(input){
+      clearInterval(timer);
+      input.value=clean;
+      input.dispatchEvent(new Event("input",{bubbles:true}));
+      input.dispatchEvent(new Event("change",{bubbles:true}));
+      input.focus();
+      input.dispatchEvent(new KeyboardEvent("keydown",{key:"Enter",code:"Enter",keyCode:13,which:13,bubbles:true}));
+      input.dispatchEvent(new KeyboardEvent("keypress",{key:"Enter",code:"Enter",keyCode:13,which:13,bubbles:true}));
+      if(typeof window.navigate==="function") window.navigate(clean);
+    } else if(tries>200) clearInterval(timer);
+  },100);
+})();
+</script></body></html>
